@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linksy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f8f9fa;
+      color: #333;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #6c63ff;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .btn {
+      background: #6c63ff;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #574fd6;
+    }
+
+    .hero {
+      background-image: url(''); /* 🔁 Replace this with your banner image */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+    }
+
+    .courses {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .course-card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      padding: 1rem;
+      text-align: left;
+      transition: 0.3s ease;
+      position: relative;
+      min-height: 320px;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    }
+
+    .course-card h3 {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+    }
+
+    .course-card p {
+      margin: 0.4rem 0;
+    }
+
+    .reviews {
+      margin-top: 0.8rem;
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .reviews span {
+      color: #ffc107;
+      margin-right: 4px;
+    }
+
+    .course-image-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #eee;
+      border-radius: 8px;
+      margin-bottom: 0.8rem;
+    }
+
+    .paper-btn {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      border-radius: 10px;
+      background: #ffc224;
+      color: #000;
+      box-shadow: 4px 4px 0 #3d3d3d;
+      border: 2px solid #3d3d3d;
+      font-weight: 600;
+      text-decoration: none;
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .paper-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 6px 6px 0 #2c2c2c;
+    }
+
+    .why-linksy {
+      padding: 3rem 2rem;
+      background: #fff6d5;
+      text-align: center;
+    }
+
+    .why-linksy h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-box {
+      background: #fff;
+      border: 1px solid #ffd25f;
+      border-radius: 12px;
+      padding: 1.2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: 0.3s ease;
+    }
+
+    .feature-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    }
+
+    .feature-box h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #ff9800;
+    }
+
+    .feature-box p {
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #222;
+      color: white;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Linksy</div>
+    <nav>
+      <a href="courses.html">Courses</a>
+      <a href="login.html" class="btn">Login</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+  </section>
+
+  <section class="courses">
+    <h2>Our Courses</h2>
+    <div class="course-grid">
+      <div class="course-card">
+        <img src="linksy.jpg" alt="Linksy Launchpad Thumbnail" style="width: 100%; border-radius: 8px; margin-bottom: 0.8rem; border: 2px solid #e0e0e0; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+        <h3>Linksy Launchpad</h3>
+        <div class="reviews"><span>★</span> (4.5 Reviews)</div>
+        <p><strong>By Linksy</strong></p>
+        <p style="margin-top:10px; font-weight:600; color:#3f51b5;">₹200 <del style="color:#888; font-size:0.9rem;">₹400</del></p>
+        <a href="purchase.html" class="paper-btn">Buy Now</a>
+      </div>
+
+      <div class="course-card">
+        <div class="course-image-placeholder"></div>
+        <h3>Linksy ConnectEdge</h3>
+        <div class="reviews"><span>★</span> (4.6 Reviews)</div>
+        <p><strong>By Linksy</strong></p>
+        <p style="margin-top:10px; font-weight:600; color:#3f51b5;">₹400 <del style="color:#888; font-size:0.9rem;">₹800</del></p>
+        <a href="purchase.html" class="paper-btn">Buy Now</a>
+      </div>
+
+      <div class="course-card">
+        <div class="course-image-placeholder"></div>
+        <h3>Linksy EarnFlow</h3>
+        <div class="reviews"><span>★</span> (4.7 Reviews)</div>
+        <p><strong>By Linksy</strong></p>
+        <p style="margin-top:10px; font-weight:600; color:#3f51b5;">₹700 <del style="color:#888; font-size:0.9rem;">₹1400</del></p>
+        <a href="purchase.html" class="paper-btn">Buy Now</a>
+      </div>
+
+      <div class="course-card">
+        <div class="course-image-placeholder"></div>
+        <h3>Linksy NetworkX</h3>
+        <div class="reviews"><span>★</span> (4.8 Reviews)</div>
+        <p><strong>By Linksy</strong></p>
+        <p style="margin-top:10px; font-weight:600; color:#3f51b5;">₹1200 <del style="color:#888; font-size:0.9rem;">₹2400</del></p>
+        <a href="purchase.html" class="paper-btn">Buy Now</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-linksy">
+    <h2>Why Choose Linksy?</h2>
+    <div class="features">
+      <div class="feature-box">
+        <h3>💡 Learn & Grow</h3>
+        <p>Master YouTube, Instagram, Snapchat, and online business skills with beginner-friendly lessons.</p>
+      </div>
+      <div class="feature-box">
+        <h3>💸 Earn Money</h3>
+        <p>Earn 50% commission every time someone buys a course using your referral link.</p>
+      </div>
+      <div class="feature-box">
+        <h3>📈 Affordable Pricing</h3>
+        <p>Courses starting at just ₹200 — designed for students, creators, and hustlers like you.</p>
+      </div>
+      <div class="feature-box">
+        <h3>🤝 Trusted by Learners</h3>
+        <p>Linksy is already empowering hundreds of young Indians with real digital income tools.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 4rem 2rem; background-color: #fff;">
+  <div style="max-width: 1100px; margin: auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem;">
+
+    <!-- Text section -->
+    <div style="flex: 1; min-width: 280px;">
+      <span style="display: inline-block; background-color: #e6e6fa; color: #3f3d56; font-weight: 600; padding: 0.3rem 0.8rem; border-radius: 999px; font-size: 0.85rem;">
+        Mr. Upendra
+      </span>
+      <h2 style="margin-top: 1rem; font-size: 1.8rem; font-weight: 700;">CEO & Founder of Linksy</h2>
+      <p style="margin-top: 1rem; color: #444; line-height: 1.6;">
+        Upendra, the Founder and CEO of Linksy. My mission is to empower adult students to grow confidently in their learning and life.
+      </p>
+      <p style="margin-top: 0.8rem; color: #444; line-height: 1.6;">
+        I help adult learners succeed on YouTube, Instagram, and more by making learning simple and practical, so they can grow their skills, build their brand, and earn money online.
+      </p>
+    </div>
+
+    <!-- Image Card -->
+    <div style="flex: 1; min-width: 280px;">
+      <div style="background-color: #ffe6f3; border: 2px solid #c694e4; border-radius: 16px; padding: 1rem; display: flex; align-items: center; box-shadow: 6px 6px 0 #c694e4;">
+        
+        <!-- Image -->
+        <img src="ceo & founder.jpg" alt="Upendra CEO" style="width: 110px; height: auto; border-radius: 12px; object-fit: cover; margin-right: 1rem;" />
+
+        <!-- Text inside card -->
+        <div>
+          <h3 style="margin: 0; font-size: 1rem; font-weight: 700;">Upendra</h3>
+          <p style="margin: 4px 0; font-size: 0.85rem; color: #6a1b9a; font-weight: 600;">Founder & CEO</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <footer>
+    <p>© 2025 Linksy. All rights reserved.</p>
+  </footer>
+</body>
+</html>
