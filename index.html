@@ -68,15 +68,6 @@
       padding: 2rem;
     }
 
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-    }
-
     .courses {
       padding: 3rem 2rem;
       text-align: center;
@@ -124,14 +115,6 @@
     .reviews span {
       color: #ffc107;
       margin-right: 4px;
-    }
-
-    .course-image-placeholder {
-      width: 100%;
-      aspect-ratio: 16/9;
-      background: #eee;
-      border-radius: 8px;
-      margin-bottom: 0.8rem;
     }
 
     .paper-btn {
@@ -228,17 +211,6 @@
       box-shadow: 0 6px 14px rgba(0,0,0,0.08);
     }
 
-    .feature-box h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-      color: #ff9800;
-    }
-
-    .feature-box p {
-      font-size: 0.95rem;
-      color: #333;
-    }
-
     footer {
       text-align: center;
       padding: 2rem;
@@ -252,7 +224,6 @@
   <header class="navbar">
     <div class="logo">Linksy</div>
     <nav>
-      <a href="courses.html">Courses</a>
       <a href="login.html" class="btn">Login</a>
     </nav>
   </header>
@@ -262,6 +233,7 @@
   <section class="courses">
     <h2>Our Courses</h2>
     <div class="course-grid">
+      <!-- Card 1 -->
       <div class="course-card">
         <div class="carousel">
           <div class="carousel-images">
@@ -269,8 +241,8 @@
             <img src="course image (2).jpg" class="carousel-image" alt="Image 2" />
           </div>
           <div class="carousel-dots">
-            <span class="dot active" onclick="showImage(0)"></span>
-            <span class="dot" onclick="showImage(1)"></span>
+            <span class="dot active"></span>
+            <span class="dot"></span>
           </div>
         </div>
         <h3>Linksy Launchpad</h3>
@@ -280,8 +252,18 @@
         <a href="purchase.html" class="paper-btn">Buy Now</a>
       </div>
 
+      <!-- Card 2 -->
       <div class="course-card">
-        <div class="course-image-placeholder"></div>
+        <div class="carousel">
+          <div class="carousel-images">
+            <img src="empty.jpg" class="carousel-image active" alt="Image 1" />
+            <img src="empty.jpg" class="carousel-image" alt="Image 2" />
+          </div>
+          <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
         <h3>Linksy ConnectEdge</h3>
         <div class="reviews"><span>★</span> (4.6 Reviews)</div>
         <p><strong>By Linksy</strong></p>
@@ -289,8 +271,18 @@
         <a href="purchase.html" class="paper-btn">Buy Now</a>
       </div>
 
+      <!-- Card 3 -->
       <div class="course-card">
-        <div class="course-image-placeholder"></div>
+        <div class="carousel">
+          <div class="carousel-images">
+            <img src="empty.jpg" class="carousel-image active" alt="Image 1" />
+            <img src="empty.jpg" class="carousel-image" alt="Image 2" />
+          </div>
+          <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
         <h3>Linksy EarnFlow</h3>
         <div class="reviews"><span>★</span> (4.7 Reviews)</div>
         <p><strong>By Linksy</strong></p>
@@ -298,8 +290,18 @@
         <a href="purchase.html" class="paper-btn">Buy Now</a>
       </div>
 
+      <!-- Card 4 -->
       <div class="course-card">
-        <div class="course-image-placeholder"></div>
+        <div class="carousel">
+          <div class="carousel-images">
+            <img src="empty.jpg" class="carousel-image active" alt="Image 1" />
+            <img src="empty.jpg" class="carousel-image" alt="Image 2" />
+          </div>
+          <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
         <h3>Linksy NetworkX</h3>
         <div class="reviews"><span>★</span> (4.8 Reviews)</div>
         <p><strong>By Linksy</strong></p>
@@ -307,9 +309,9 @@
         <a href="purchase.html" class="paper-btn">Buy Now</a>
       </div>
     </div>
-    </section>
+  </section>
 
-  <!-- ✅ Why Choose Linksy Section (restored) -->
+  <!-- Why Linksy -->
   <section class="why-linksy">
     <h2>Why Choose Linksy?</h2>
     <div class="features">
@@ -319,7 +321,7 @@
       </div>
       <div class="feature-box">
         <h3>Earn Money</h3>
-        <p>Earn money by generating leads for company that need new clients.</p>
+        <p>Earn money by generating leads for companies that need new clients.</p>
       </div>
       <div class="feature-box">
         <h3>Affordable Pricing</h3>
@@ -332,29 +334,21 @@
     </div>
   </section>
 
-  <!-- ✅ Customer Support Section -->
+  <!-- Support -->
   <section style="padding: 3rem 2rem; background-color: #eaf4ff; text-align: center;">
     <h2 style="font-size: 2rem; color: #3f51b5; margin-bottom: 1rem;">Linksy Customer Support</h2>
-    <p style="font-size: 1rem; color: #444; margin-bottom: 2rem;">
-      (We are available on Monday to Friday 10am to 5pm)
-    </p>
+    <p style="font-size: 1rem; color: #444; margin-bottom: 2rem;">(We are available on Monday to Friday 10am to 5pm)</p>
     <a href="mailto:businessgetlinksy@gmail.com" class="paper-btn" style="position: static;">Email Support</a>
   </section>
 
-  <!-- ✅ CEO & Founder Section -->
+  <!-- CEO -->
   <section style="padding: 4rem 2rem; background-color: #fff;">
     <div style="max-width: 1100px; margin: auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem;">
       <div style="flex: 1; min-width: 280px;">
-        <span style="display: inline-block; background-color: #e6e6fa; color: #3f3d56; font-weight: 600; padding: 0.3rem 0.8rem; border-radius: 999px; font-size: 0.85rem;">
-          Mr. Upendra
-        </span>
+        <span style="display: inline-block; background-color: #e6e6fa; color: #3f3d56; font-weight: 600; padding: 0.3rem 0.8rem; border-radius: 999px; font-size: 0.85rem;">Mr. Upendra</span>
         <h2 style="margin-top: 1rem; font-size: 1.8rem; font-weight: 700;">CEO & Founder of Linksy</h2>
-        <p style="margin-top: 1rem; color: #444; line-height: 1.6;">
-          Upendra, the Founder and CEO of Linksy. My mission is to empower adult students to grow confidently in their learning and life.
-        </p>
-        <p style="margin-top: 0.8rem; color: #444; line-height: 1.6;">
-          I help adult learners succeed on YouTube, Instagram, and more by making learning simple and practical, so they can grow their skills, build their brand, and earn money online.
-        </p>
+        <p style="margin-top: 1rem; color: #444; line-height: 1.6;">Upendra, the Founder and CEO of Linksy. My mission is to empower adult students to grow confidently in their learning and life.</p>
+        <p style="margin-top: 0.8rem; color: #444; line-height: 1.6;">I help adult learners succeed on YouTube, Instagram, and more by making learning simple and practical, so they can grow their skills, build their brand, and earn money online.</p>
       </div>
       <div style="flex: 1; min-width: 280px;">
         <div style="background-color: #ffe6f3; border: 2px solid #c694e4; border-radius: 16px; padding: 1rem; display: flex; align-items: center; box-shadow: 6px 6px 0 #c694e4;">
@@ -373,17 +367,16 @@
   </footer>
 
   <script>
-    let currentImage = 0;
-    const images = document.querySelectorAll('.carousel-image');
-    const dots = document.querySelectorAll('.dot');
-
-    function showImage(index) {
-      images.forEach((img, i) => {
-        img.classList.toggle('active', i === index);
-        dots[i].classList.toggle('active', i === index);
+    document.querySelectorAll('.course-card').forEach((card) => {
+      const images = card.querySelectorAll('.carousel-image');
+      const dots = card.querySelectorAll('.dot');
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          images.forEach((img, i) => img.classList.toggle('active', i === index));
+          dots.forEach((d, i) => d.classList.toggle('active', i === index));
+        });
       });
-      currentImage = index;
-    }
+    });
   </script>
 </body>
 </html>
