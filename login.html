@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | Linksy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #f5f3ff, #ffffff);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: white;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #6c63ff;
+    }
+
+    .breadcrumb {
+      text-align: center;
+      margin: 3rem 0 1rem;
+    }
+
+    .breadcrumb h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #222;
+    }
+
+    .breadcrumb p {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 0.4rem;
+    }
+
+    .breadcrumb a {
+      color: #6c63ff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .login-container {
+      max-width: 500px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      border: 1px solid #e0e0e0;
+    }
+
+    .login-container h2 {
+      margin-bottom: 2rem;
+      font-size: 1.6rem;
+      color: #3f51b5;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+      outline: none;
+      transition: border 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #6c63ff;
+    }
+
+    .paper-btn {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      padding: 1rem 1.2rem;
+      border-radius: 12px;
+      background: #ffc224;
+      color: #000;
+      box-shadow: 4px 4px 0 #3d3d3d;
+      border: 2px solid #3d3d3d;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .paper-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 6px 6px 0 #2c2c2c;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 2rem;
+      background: #222;
+      color: white;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Linksy</div>
+  </header>
+
+  <section class="breadcrumb">
+    <h1>Login</h1>
+    <p><a href="index.html">Home</a> &gt; Login</p>
+  </section>
+
+  <section class="login-container">
+    <h2>Login to your account</h2>
+    <form>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="you@example.com" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required />
+      </div>
+      <button type="submit" class="paper-btn">Login</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Linksy. All rights reserved.</p>
+  </footer>
+
+  <!-- Firebase Login Script -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import {
+      getAuth,
+      signInWithEmailAndPassword
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    // Replace with your actual Firebase project config
+    const firebaseConfig = {
+      apiKey: "AIzaSyBpSDyDswjUxxNMkTjG7pd8eJdJXU9l9VE",
+      authDomain: "getlinksy-3770a.firebaseapp.com",
+      projectId: "getlinksy-3770a",
+      storageBucket: "getlinksy-3770a.firebasestorage.app",
+      messagingSenderId: "316415727371",
+      appId: "1:316415727371:web:791d23e4cce7709b3e340e",
+      measurementId: "G-LPC9D27J36",
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const form = document.querySelector("form");
+
+    // Auto-fill saved credentials
+    window.addEventListener("DOMContentLoaded", () => {
+      const savedEmail = localStorage.getItem("savedEmail");
+      const savedPassword = localStorage.getItem("savedPassword");
+
+      if (savedEmail && savedPassword) {
+        emailInput.value = savedEmail;
+        passwordInput.value = savedPassword;
+      }
+    });
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = emailInput.value;
+      const password = passwordInput.value;
+
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+
+        // Save credentials only after successful login
+        localStorage.setItem("savedEmail", email);
+        localStorage.setItem("savedPassword", password);
+
+        // Redirect after successful login
+        window.location.href = "profile.html";
+      } catch (error) {
+        alert("❌ Login failed: " + error.message);
+      }
+    });
+  </script>
+</body>
+</html>
