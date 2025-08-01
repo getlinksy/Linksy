@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Purchase Course | Linksy</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: white;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #6c63ff;
+    }
+
+    .breadcrumb {
+      text-align: center;
+      margin: 2rem 0 1rem;
+    }
+
+    .breadcrumb h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #222;
+    }
+
+    .breadcrumb p {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 0.4rem;
+    }
+
+    .breadcrumb a {
+      color: #6c63ff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .main p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      border-radius: 12px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      background-color: #25D366;
+      color: #fff;
+      box-shadow: 4px 4px 0 #128C7E;
+      transition: all 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background-color: #1ebe5d;
+      transform: translateY(-2px);
+      box-shadow: 6px 6px 0 #0e5f56;
+    }
+
+/* footer */
+    .linksy-footer {
+      background:#f8f9fa;
+      padding: 60px 20px 30px;
+      color: #333;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 50px;
+      justify-content: space-between;
+    }
+
+    .footer-col {
+      flex: 1 1 220px;
+      min-width: 200px;
+    }
+
+    .footer-logo {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 15px;
+      color: #000;
+      letter-spacing: 1px;
+    }
+
+    .footer-col h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 18px;
+      color: #111;
+      position: relative;
+    }
+
+    .footer-col h4::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 2px;
+      background: #6c63ff;
+      margin-top: 6px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-col li {
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fadeSlideUp 0.6s ease forwards;
+    }
+
+    .footer-col li:nth-child(1) { animation-delay: 0.1s; }
+    .footer-col li:nth-child(2) { animation-delay: 0.2s; }
+    .footer-col li:nth-child(3) { animation-delay: 0.3s; }
+    .footer-col li:nth-child(4) { animation-delay: 0.4s; }
+
+    @keyframes fadeSlideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .footer-col a {
+      font-size: 14px;
+      color: #555;
+      text-decoration: none;
+      line-height: 1.8;
+      display: inline-block;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .footer-col a:hover {
+      color: #6c63ff;
+      transform: translateX(5px);
+    }
+
+    .footer-col p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .footer-socials a {
+      width: 38px;
+      height: 38px;
+      background-color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #555;
+      border: 1px solid #ccc;
+      transition: background 0.3s, color 0.3s, border-color 0.3s;
+    }
+
+    .footer-socials a:hover {
+      background-color: #6c63ff;
+      color: #fff;
+      border-color: #6c63ff;
+      transform: none !important; /* Disable movement */
+    }
+
+    .footer-bottom {
+      text-align: center;
+      font-size: 13px;
+      color: #777;
+      margin-top: 50px;
+      border-top: 1px solid #ddd;
+      padding-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .footer-logo,
+      .footer-socials {
+        text-align: left;
+        justify-content: left;
+      }
+
+      .footer-bottom {
+        font-size: 12px;
+      }
+    }    
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Linksy</div>
+</header>
+
+<section class="breadcrumb">
+  <h1>Purchase</h1>
+  <p><a href="index.html">Home</a> &gt; Purchase</p>
+</section>
+
+<section class="main">
+  <p>You can buy your course directly through UPI. For questions or assistance, chat with us on WhatsApp anytime.</p>
+  <a href="upi://pay?pa=9012775446@fam&pn=Upendra%20Singh%20Dagur&am=219&cu=INR" target="_blank" class="cta-btn">Buy Course Now</a>
+</section>  
+
+  <footer class="linksy-footer">
+    <div class="footer-container">
+   <!-- About -->
+    <div class="footer-col">
+      <div class="footer-logo">Linksy</div>
+      <p>Linksy is your smart referral platform. Buy a course once, share your link, and earn daily without limits.</p>
+      <div class="footer-socials">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="https://wa.me/919012775446?text=Hi"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
+        <li><a href="index.html#course"><i class="fas fa-angle-right"></i> Buy Course</a></li>
+        <li><a href="dashboard.html"><i class="fas fa-angle-right"></i> Dashboard</a></li>
+        <li><a href="faq.html"><i class="fas fa-angle-right"></i> FAQ</a></li>
+      </ul>
+    </div>
+
+    <!-- Legal -->
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="terms.html"><i class="fas fa-angle-right"></i> Terms & Conditions</a></li>
+        <li><a href="privacy.html"><i class="fas fa-angle-right"></i> Privacy Policy</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:businessgetlinksy@gmail.com"><i class="fas fa-envelope"></i> businessgetlinksy@gmail.com</a></li>
+        <li><a href="tel:+919012775446"><i class="fas fa-phone"></i> +91 9012775446</a></li>
+      </ul>  
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    &copy; 2025 Linksy. Built for smart earners. All rights reserved.
+  </div> 
+  </footer>
+
+<script>
+  function toggleChatbox() {
+    const chatbox = document.getElementById("customChatbox");
+    const chatIcon = document.getElementById("chat-icon");
+
+    if (chatbox.style.display === "block") {
+      chatbox.style.display = "none";
+      chatIcon.textContent = "Chat";
+    } else {
+      chatbox.style.display = "block";
+      chatIcon.textContent = "Close";
+
+      // Restore opened FAQ from localStorage
+      const savedIndex = localStorage.getItem("openFAQ");
+      if (savedIndex) {
+        const items = document.querySelectorAll(".faq-item");
+        const item = items[parseInt(savedIndex)];
+        if (item) {
+          const answer = item.querySelector(".faq-answer");
+          answer.style.display = "block";
+        }
+      }
+    }
+  }
+
+  function toggleAnswer(element) {
+    const answer = element.querySelector(".faq-answer");
+    const allAnswers = document.querySelectorAll('.faq-answer');
+
+    allAnswers.forEach((ans, index) => {
+      if (ans !== answer) ans.style.display = "none";
+    });
+
+    const isOpen = answer.style.display === "block";
+    answer.style.display = isOpen ? "none" : "block";
+
+    // Save or clear from localStorage
+    const items = [...document.querySelectorAll(".faq-item")];
+    const index = items.indexOf(element);
+    if (!isOpen) {
+      localStorage.setItem("openFAQ", index);
+    } else {
+      localStorage.removeItem("openFAQ");
+    }
+  }
+
+  function filterFAQs() {
+    const input = document.getElementById("faq-search").value.toLowerCase();
+    const items = document.querySelectorAll(".faq-item");
+
+    items.forEach(item => {
+      const question = item.querySelector("button").textContent.toLowerCase();
+      item.style.display = question.includes(input) ? "block" : "none";
+    });
+  }
+</script>
+
+</body>
+</html>

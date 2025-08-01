@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linksy – FAQ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #2343e0;
+      --light-gray: #f4f4f4;
+      --muted: #666;
+      --bg: #ffffff;
+      --radius: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Manrope', sans-serif;
+      background-color: var(--bg);
+      color: #111;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+
+    h1.title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+
+    .accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .accordion-item {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      text-align: left;
+      transition: all 0.3s ease;
+    }
+
+    .accordion-header {
+      padding: 1.2rem 1.5rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .accordion-header:hover {
+      background-color: #f9f9f9;
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 1.5rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+      transition: all 0.3s ease;
+    }
+
+    .accordion-content.open {
+      padding: 1rem 1.5rem;
+      max-height: 300px;
+    }
+
+    .icon {
+      font-size: 1.3rem;
+      color: var(--primary);
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-item.open .icon {
+      transform: rotate(45deg);
+    }
+
+    @media (max-width: 600px) {
+      h1.title {
+        font-size: 2.2rem;
+      }
+
+      .accordion-header {
+        font-size: 1rem;
+      }
+    }
+
+    /* footer */
+    .linksy-footer {
+      background: #f8f9fa;
+      padding: 60px 20px 30px;
+      color: #333;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 50px;
+      justify-content: space-between;
+    }
+
+    .footer-col {
+      flex: 1 1 220px;
+      min-width: 200px;
+    }
+
+    .footer-logo {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 15px;
+      color: #000;
+      letter-spacing: 1px;
+    }
+
+    .footer-col h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 18px;
+      color: #111;
+      position: relative;
+    }
+
+    .footer-col h4::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 2px;
+      background: #6c63ff;
+      margin-top: 6px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-col li {
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fadeSlideUp 0.6s ease forwards;
+    }
+
+    .footer-col li:nth-child(1) { animation-delay: 0.1s; }
+    .footer-col li:nth-child(2) { animation-delay: 0.2s; }
+    .footer-col li:nth-child(3) { animation-delay: 0.3s; }
+    .footer-col li:nth-child(4) { animation-delay: 0.4s; }
+
+    @keyframes fadeSlideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .footer-col a {
+      font-size: 14px;
+      color: #555;
+      text-decoration: none;
+      line-height: 1.8;
+      display: inline-block;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .footer-col a:hover {
+      color: #6c63ff;
+      transform: translateX(5px);
+    }
+
+    .footer-col p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .footer-socials a {
+      width: 38px;
+      height: 38px;
+      background-color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #555;
+      border: 1px solid #ccc;
+      transition: background 0.3s, color 0.3s, border-color 0.3s;
+    }
+
+    .footer-socials a:hover {
+      background-color: #6c63ff;
+      color: #fff;
+      border-color: #6c63ff;
+      transform: none !important;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      font-size: 13px;
+      color: #777;
+      margin-top: 50px;
+      border-top: 1px solid #ddd;
+      padding-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .footer-logo,
+      .footer-socials {
+        text-align: left;
+        justify-content: left;
+      }
+
+      .footer-bottom {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="title">FAQ's</h1>
+    <div class="accordion">
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          How does Linksy help creators grow?
+          <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+          Linksy allows creators to earn recurring income by sharing smart referral links for educational products. The system tracks referrals and automates rewards monthly.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          What makes Linksy different from other referral tools?
+          <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+          Linksy offers no cap on earnings, a clean dashboard, and transparent analytics. It’s designed to reward users who bring value consistently.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          Can I promote courses I haven’t purchased?
+          <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+          No, only verified purchasers can become active referrers. This keeps recommendations authentic and trust high.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          Is technical knowledge required to use Linksy?
+          <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+          Not at all. The platform is simple, clean, and user-friendly — anyone can generate links and track performance.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          How do I monitor my referral performance?
+          <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+          Your Linksy dashboard shows real-time stats including clicks, signups, purchases, and commissions.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          Are earnings paid out monthly?
+          <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+          Yes. Linksy processes payments monthly based on verified course subscriptions and referral activity.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          Is Linksy available globally?
+          <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+          Yes, Linksy is accessible from anywhere. Payments are made via secure global methods like UPI, PayPal, or bank transfer.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          Can I change my referral links?
+          <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+          You can generate new links at any time, but older links will remain functional unless you manually disable them.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          How secure is my Linksy account?
+          <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+          We use industry-grade encryption, 2FA support, and real-time monitoring to keep your account safe and private.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          What happens if I refer the same user twice?
+          <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+          Linksy tracks the first successful referral. You’ll still earn on recurring purchases if you're the original source.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          How can I get early access to new features?
+          <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+          Join our Insider List to get notified about beta tools and upcoming feature drops before public launch.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          Where can I get support if I have issues?
+          <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+          Reach out via the Help section in your dashboard or contact our support team through email for quick responses.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="linksy-footer">
+    <div class="footer-container">
+   <!-- About -->
+    <div class="footer-col">
+      <div class="footer-logo">Linksy</div>
+      <p>Linksy is your smart referral platform. Buy a course once, share your link, and earn daily without limits.</p>
+      <div class="footer-socials">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="https://wa.me/919012775446?tleft"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
+        <li><a href="index.html#course"><i class="fas fa-angle-right"></i> Buy Course</a></li>
+        <li><a href="dashboard.html"><i class="fas fa-angle-right"></i> Dashboard</a></li>
+        <li><a href="faq.html"><i class="fas fa-angle-right"></i> FAQ</a></li>
+      </ul>
+    </div>
+
+    <!-- Legal -->
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="terms.html"><i class="fas fa-angle-right"></i> Terms & Conditions</a></li>
+        <li><a href="privacy.html"><i class="fas fa-angle-right"></i> Privacy Policy</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:businessgetlinksy@gmail.com"><i class="fas fa-envelope"></i> businessgetlinksy@gmail.com</a></li>
+        <li><a href="tel:+919012775446"><i class="fas fa-phone"></i> +91 9012775446</a></li>
+      </ul>  
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    &copy; 2025 Linksy. Built for smart earners. All rights reserved.
+   </div> 
+  </footer>
+
+  <script>
+    const items = document.querySelectorAll('.accordion-item');
+    items.forEach(item => {
+      const header = item.querySelector('.accordion-header');
+      header.addEventListener('click', () => {
+        const openItem = document.querySelector('.accordion-item.open');
+        if (openItem && openItem !== item) {
+          openItem.classList.remove('open');
+          openItem.querySelector('.accordion-content').classList.remove('open');
+        }
+        item.classList.toggle('open');
+        item.querySelector('.accordion-content').classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>
