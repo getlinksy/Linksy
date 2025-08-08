@@ -1,13 +1,12 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Skillso</title>
   <!-- Favicon -->
-  <link rel="icon" type="image/jpeg" href="favicon.jpeg">
-  
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/jpeg" href="favicon.jpeg" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
       --yellow: #ffdf00;
@@ -25,7 +24,7 @@
     }
     .header-wrapper {
       width: 100%;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* added black line */
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* black line */
     }
     header {
       display: flex;
@@ -70,18 +69,94 @@
     .cta:hover {
       background: #333;
     }
+
+    /* Mobile menu button */
+    .menu-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 28px;
+      height: 24px;
+      cursor: pointer;
+    }
+    .menu-btn div {
+      width: 100%;
+      height: 3px;
+      background-color: var(--black);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      nav {
+        position: fixed;
+        top: 70px;
+        right: 0;
+        background: #fff;
+        height: calc(100vh - 70px);
+        width: 200px;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        gap: 12px;
+        z-index: 1000;
+      }
+      nav.show {
+        transform: translateX(0);
+      }
+      .menu-btn {
+        display: flex;
+      }
+      nav a {
+        font-size: 18px;
+        width: 100%;
+      }
+      .cta {
+        width: 100%;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
- <div class="header-wrapper">
-  <header>
-    <div class="logo">
-      <img src="logo.png" alt="Site Logo">
-    </div>
-    <nav>
-      <a href="index.html#courses">Courses</a>
-      <a class="cta" href="login.html">Login</a>
-    </nav>
-  </header>
+  <div class="header-wrapper">
+    <header>
+      <div class="logo">
+        <img src="logo.png" alt="Site Logo" />
+      </div>
+
+      <!-- Menu button for mobile -->
+      <div class="menu-btn" id="menu-btn" aria-label="Toggle menu" role="button" tabindex="0">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <nav id="nav">
+        <a href="index.html#courses">Courses</a>
+        <a class="cta" href="login.html">Login</a>
+      </nav>
+    </header>
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const nav = document.getElementById('nav');
+
+    menuBtn.addEventListener('click', () => {
+      nav.classList.toggle('show');
+    });
+
+    // Optional: close menu on link click
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('show');
+      });
+    });
+  </script>
 </body>
 </html>
